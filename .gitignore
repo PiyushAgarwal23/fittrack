@@ -1,19 +1,22 @@
-# ─── .NET Backend ────────────────────────────────────────────────────────────
+# ─── .NET Backend ─────────────────────────────────────────
 backend/FitTrack.API/bin/
 backend/FitTrack.API/obj/
 
-# NEVER commit real secrets!
-# appsettings.json has placeholder values - safe to commit
-# But if you create appsettings.Production.json with real keys, add it here:
-# backend/FitTrack.API/appsettings.Production.json
+# Ignore production secrets if created
+backend/FitTrack.API/appsettings.Production.json
 
-# ─── Frontend ────────────────────────────────────────────────────────────────
+# ─── Frontend ─────────────────────────────────────────────
 frontend/node_modules/
 frontend/dist/
-frontend/.env          # This has your real API URL - don't commit
-frontend/.env.local
 
-# ─── General ─────────────────────────────────────────────────────────────────
+# Ignore ALL env files (very important 🔐)
+frontend/.env
+frontend/.env.*
+
+# ─── General ──────────────────────────────────────────────
 .DS_Store
 Thumbs.db
 *.log
+
+# Visual Studio
+backend/FitTrack.API/.vs/

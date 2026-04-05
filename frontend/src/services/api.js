@@ -6,14 +6,20 @@ import axios from 'axios'
 
 // Base URL: reads from .env file (VITE_API_URL=http://localhost:5000)
 // Falls back to same-origin (for when frontend and backend are on same server)
+// const BASE_URL = import.meta.env.VITE_API_URL || ''
+
+// // Create axios instance with default config
+// const api = axios.create({
+//   baseURL: "https://localhost:5000", // ✅ FIX
+//   headers: { 'Content-Type': 'application/json' },
+// })
+
 const BASE_URL = import.meta.env.VITE_API_URL || ''
 
-// Create axios instance with default config
 const api = axios.create({
-  baseURL: "https://localhost:5000", // ✅ FIX
+  baseURL: BASE_URL,
   headers: { 'Content-Type': 'application/json' },
 })
-
 // ── REQUEST INTERCEPTOR ───────────────────────────────────────────────────────
 // Automatically attach JWT token to every request
 api.interceptors.request.use((config) => {
