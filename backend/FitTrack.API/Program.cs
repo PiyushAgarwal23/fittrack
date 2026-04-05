@@ -55,7 +55,8 @@ builder.Services.AddCors(options =>
         policy.WithOrigins(
                 "http://localhost:5173",        // Local React dev server
                 "http://localhost:5174",        // Local React dev server
-                "https://*.netlify.app"         // Deployed Netlify frontend
+                 "https://mutablehunk.netlify.app" // 👈 tumhara actual URL
+                                                      // Deployed Netlify frontend
             )
             .AllowAnyHeader()
             .AllowAnyMethod();
