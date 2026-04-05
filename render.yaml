@@ -1,0 +1,23 @@
+# render.yaml
+# Optional: drop this in your repo root for one-click Render deployment
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: fittrack-api
+    env: dotnet
+    plan: free                          # Free tier on Render
+    buildCommand: |
+      cd backend/FitTrack.API
+      dotnet publish -c Release -o out
+    startCommand: cd backend/FitTrack.API && dotnet out/FitTrack.API.dll
+    envVars:
+      # Set these in Render dashboard → Environment tab
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__DefaultConnection
+        sync: false                     # Set manually in dashboard (secret)
+      - key: JwtSettings__Secret
+        sync: false                     # Set manually in dashboard (secret)
+      - key: ClaudeApiKey
+        sync: false                     # Set manually in dashboard (secret)

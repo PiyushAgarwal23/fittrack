@@ -1,0 +1,104 @@
+/* src/index.css */
+/* Import Tailwind's base, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── GLOBAL BASE STYLES ──────────────────────────────────────────────────── */
+
+/* Smooth transitions for dark/light mode switching */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Base body styling */
+body {
+  @apply bg-gray-50 text-gray-900;
+  @apply dark:bg-gray-950 dark:text-gray-100;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+/* ─── REUSABLE COMPONENT CLASSES ─────────────────────────────────────────── */
+
+/* Card - used throughout the app */
+.card {
+  @apply bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6;
+}
+
+/* Primary button */
+.btn-primary {
+  @apply bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2.5 px-6 rounded-xl;
+  @apply transition-all duration-200 hover:shadow-md active:scale-95;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* Secondary / outline button */
+.btn-secondary {
+  @apply border-2 border-sky-500 text-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/20;
+  @apply font-semibold py-2.5 px-6 rounded-xl transition-all duration-200;
+}
+
+/* Input field */
+.input {
+  @apply w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600;
+  @apply bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100;
+  @apply focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent;
+  @apply placeholder-gray-400 dark:placeholder-gray-500;
+}
+
+/* Label */
+.label {
+  @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+}
+
+/* Section heading */
+.section-title {
+  @apply text-2xl font-bold text-gray-900 dark:text-white mb-1;
+}
+
+.section-subtitle {
+  @apply text-gray-500 dark:text-gray-400 text-sm;
+}
+
+/* Progress bar */
+.progress-bar {
+  @apply h-3 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden;
+}
+
+.progress-fill {
+  @apply h-full rounded-full bg-gradient-to-r from-sky-400 to-sky-600 transition-all duration-500;
+}
+
+/* Custom scrollbar (webkit browsers) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+/* Leaflet map fix - ensure map shows correctly */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+  z-index: 1;
+}
+
+/* Animated gradient text for headings */
+.gradient-text {
+  @apply bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}

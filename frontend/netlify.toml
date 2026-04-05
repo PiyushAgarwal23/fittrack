@@ -1,0 +1,13 @@
+# netlify.toml
+# This file tells Netlify how to build and serve our React app
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# CRITICAL: This redirect makes React Router work on Netlify
+# Without this, refreshing any page other than / gives a 404
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
